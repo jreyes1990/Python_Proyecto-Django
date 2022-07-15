@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+<h1>{{saludo}}</h1>
+{% for dia in dias %}
+    <h3>-{{dia}}</h3>
+{% endfor%}
+
+{% for curso in cursos %}
+    {% if curso.envivo == True %}
+        <p>Curso: {{curso.curso}}</p>
+        <p>Profesor: {{curso.profesor}}</p>
+        <p>En Vivo: {{curso.envivo}}</p>
+    {% endif%}
+{% endfor%}
+-->
+
+<table>
+    <tbody>
+        {% for pais in listapais %}
+            <tr>
+                <td>{{pais.idpais}}</td>
+                <td>{{pais.nombre}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+</html>
