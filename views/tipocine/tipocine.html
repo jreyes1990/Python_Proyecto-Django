@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'estilos.html' %}
+</head>
+<body>
+{% include 'menu.html' %}
+
+<div class="container mt-3">
+    <table id="table" class="table">
+        <thead>
+            <tr>
+                <th>Id Tipo Cine</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tCine in listatipocine %}
+                <tr>
+                    <td>{{tCine.id_tipocine}}</td>
+                    <td>{{tCine.nombre}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'scripts.html' %}
+</body>
+</html>

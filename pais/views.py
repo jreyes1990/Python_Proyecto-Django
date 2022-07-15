@@ -5,10 +5,11 @@ from webconfig.Querys import SQL
 
 def listar(request):
     odasql = SQL()
-    listaPais = odasql.listarJSON("select * from pais")
+    listaPais = odasql.listarJSON("exec uspListarPais")
 
     return render(request, "pais/pais.html", {
-        "listapais": listaPais
+        "listapais": listaPais,
+        "nombre": ""
     })
 
     '''
@@ -23,3 +24,18 @@ def listar(request):
 
 def agregarPais(request):
     return render(request,"pais/agregarpais.html",None)
+
+def buscarPais(request):
+    nombre = request.POST.get("nombre").strip()
+    print(nombre)
+    odasql = SQL()
+
+    if nombre=="" or nombre==None:
+        listaPais = odasql.listarJSON("exec uspListarPais")
+    else:
+        listaPais = odasql.listarJSON("exec uspFiltrarPaisNombre @nombre={0}".format(nombre))
+
+    return render(request, "pais/pais.html", {
+        "listapais": listaPais,
+        "nombre": nombre
+    })
