@@ -24,4 +24,5 @@ urlpatterns = [
     path('primerapagina/', views.miPrimeraPagina),
     path('pais/', include('pais.urls')),
     path('tipocine/', include('tipocine.urls')),
+    path('cine/', include('cine.urls')),
 ]
